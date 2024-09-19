@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import "./App.css";
-import PageOne from "./components/PageOne";
+import TodoApp from "./components/TodoApp";
 
 function App() {
   return (
     <div className="App">
-      <PageOne text="Kugelis" age="12" />
+      <TodoApp></TodoApp>
     </div>
   );
 }
