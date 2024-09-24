@@ -1,19 +1,132 @@
+/* TodoApp.css */
+
 body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.todoList {
+  width: 400px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
-input {
-  font-size: 1.6rem;
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 30px;
+
+h1 {
+  font-size: 28px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: calc(100% - 80px);
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  margin-right: 10px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #ff7e5f;
+}
+
+.addButton {
+  width: 50px;
+  padding: 12px;
+  background-color: #ff7e5f;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.addButton:hover {
+  background-color: #ff6f4f;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+span {
+  flex-grow: 1;
+  color: #333;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.buttonas {
+  padding: 6px 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.buttonas.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.buttonas.delete:hover {
+  background-color: #c0392b;
+}
+
+.buttonas.up {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.buttonas.up:hover {
+  background-color: #16a085;
+}
+
+.buttonas.down {
+  background-color: #3498db;
+  color: white;
+}
+
+.buttonas.down:hover {
+  background-color: #2980b9;
 }

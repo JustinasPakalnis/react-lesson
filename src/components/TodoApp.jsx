@@ -4,52 +4,70 @@ function TodoApp() {
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const handleHange = (e) => {
+  // Fixed function name typo
+  const handleChange = (e) => {
     setNewTask(e.target.value);
-    console.log(newTask, tasks);
   };
+
   const addTask = () => {
     if (newTask.trim() !== "") {
-      setTasks((tas) => [...tas, newTask]);
+      setTasks((prevTasks) => [...prevTasks, newTask]);
       setNewTask("");
     }
   };
+
   const deleteTask = (index) => {
-    const updateTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updateTasks);
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
   };
-  const taskUp = () => {};
-  const taskDown = () => {};
+
+  const taskUp = (index) => {
+    if (index > 0) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index - 1]] = [
+        updatedTasks[index - 1],
+        updatedTasks[index],
+      ];
+      setTasks(updatedTasks);
+    }
+  };
+
+  const taskDown = (index) => {
+    if (index < tasks.length - 1) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index + 1]] = [
+        updatedTasks[index + 1],
+        updatedTasks[index],
+      ];
+      setTasks(updatedTasks);
+    }
+  };
 
   return (
     <div className="todoList">
-      <h1>To-Do-List</h1>
+      <h1>To-Do List</h1>
       <div>
         <input
           type="text"
-          placeholder="Enter A task"
+          placeholder="Enter a task"
           value={newTask}
-          onChange={handleHange}
+          onChange={handleChange} // Updated function name
         />
         <button className="addButton" onClick={addTask}>
-          ADD
+          +
         </button>
       </div>
       <ol>
         {tasks.map((task, index) => (
           <li key={index}>
             <span>{task}</span>
-            <button
-              className="buttonas"
-              style={{}}
-              onClick={() => deleteTask(index)}
-            >
+            <button className="buttonas" onClick={() => deleteTask(index)}>
               DELETE
             </button>
-            <button className="buttonas" style={{}} onClick={taskUp}>
+            <button className="buttonas" onClick={() => taskUp(index)}>
               UP
             </button>
-            <button className="buttonas" style={{}} onClick={taskDown}>
+            <button className="buttonas" onClick={() => taskDown(index)}>
               DOWN
             </button>
           </li>
